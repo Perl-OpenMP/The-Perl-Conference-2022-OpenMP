@@ -1,4 +1,4 @@
-all: pi pi2 hi
+all: pi pi2 hi sections critical tasks threadprivate
 
 hi:
 	mkdir ./bin > /dev/null 2>&1 || echo found ./bin 
@@ -17,7 +17,16 @@ pi:
 	gcc -fopenmp ./src/omp-pi.c -o ./bin/omp-pi.x
 
 pi2:
+	mkdir ./bin > /dev/null 2>&1 || echo found ./bin 
 	gcc -fopenmp ./src/omp-pi-2.c -o ./bin/omp-pi-2.x
+
+tasks:
+	mkdir ./bin > /dev/null 2>&1 || echo found ./bin 
+	gcc -fopenmp ./src/tasks.c -o ./bin/tasks.x
+
+threadprivate:
+	mkdir ./bin > /dev/null 2>&1 || echo found ./bin 
+	gcc -fopenmp ./src/threadprivate.c -o ./bin/threadprivate.x
 
 run: pi2
 	mkdir ./bin > /dev/null 2>&1 || echo found ./bin 
