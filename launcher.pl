@@ -10,7 +10,7 @@ use Util::H2O::More qw/h2o opt2h2o/;
 use OpenMP::Environment ();
 
 # init options
-my @opts =m(qw/threads=i/);
+my @opts = (qw/threads=i/);
 my $o = h2o {threads => 4};
 my $ret = GetOptionsFromArray( \@ARGV, $o, @opts );
 
@@ -43,7 +43,7 @@ my $oenv = OpenMP::Environment->new;
 $oenv->omp_num_threads($o->threads);
 my $exit_code = system( $ARGV[-1] );
 if ( $exit_code == 0 ) {
-    print qq{OK - now do stuff after a successful execution\n};
+    #print qq{OK - now do stuff after a successful execution\n};
 }
 else {
     print qq{Oof - something went wrong.\n};
