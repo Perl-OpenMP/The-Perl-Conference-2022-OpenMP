@@ -37,4 +37,4 @@ run: pi2
 	./inline/omp-pi.pl
 
 clean:
-	rm -rvf ./bin/*.x ./_Inline
+	rm -rvf ./bin/*.x ./_Inline ./O-E-examples/_Inline
