@@ -6,15 +6,13 @@ use warnings;
 use FindBin qw/$Bin/;
 use lib qq{$Bin/../lib};
 use Getopt::Long qw/GetOptionsFromArray/;
-use Util::H2O qw/h2o/;
+use Util::H2O::More qw/h2o opt2h2o/;
 use OpenMP::Environment ();
 
 # init options
-my $o = {
-    threads => 4,
-};
-my $ret = GetOptionsFromArray( \@ARGV, $o, qw/threads=s/ );
-h2o $o;
+my @opts =m(qw/threads=i/);
+my $o = h2o {threads => 4};
+my $ret = GetOptionsFromArray( \@ARGV, $o, @opts );
 
 =pod
 This example runs an standalone executable. Though one is not
